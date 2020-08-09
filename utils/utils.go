@@ -36,6 +36,15 @@ func ClearConsole() {
 	}
 }
 
+
+func PopShell() {
+	cmd := exec.Command("cmd.exe")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
+	cmd.Run()
+}
+
 func Pwd() (string, error) {
 	getcwd, err := os.Getwd()
 	if err != nil {
